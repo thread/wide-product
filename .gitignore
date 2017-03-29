@@ -1,0 +1,5 @@
+__pycache__
+*.pyc
+_wide.o
+_wide.c
+_wide.*.so
