@@ -63,4 +63,9 @@ setup(
     setup_requires=(
         'cffi >=1.10',
     ),
+
+    tests_require=(
+        'pytest',
+        'hypothesis',
+    ),
 )
