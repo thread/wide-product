@@ -5,3 +5,4 @@ _wide.c
 _wide.*.so
 *.egg-info
 build
+dist
