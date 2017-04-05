@@ -1,13 +1,24 @@
 import cffi
+import os.path
+
+source_path = os.path.join(
+    os.path.dirname(os.path.realpath(__file__)),
+    'wide_product',
+)
 
 ffibuilder = cffi.FFI()
 
 ffibuilder.set_source(
-    '_wide',
+    'wide_product._wide',
     r"""
     #include "wide.c"
     """,
-    extra_compile_args=['-Werror', '-fno-unwind-tables', '-fomit-frame-pointer'],
+    extra_compile_args=[
+        '-Werror',
+        '-fno-unwind-tables',
+        '-fomit-frame-pointer',
+    ],
+    include_dirs=[source_path],
 )
 
 ffibuilder.cdef(

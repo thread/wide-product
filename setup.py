@@ -33,6 +33,7 @@ setup(
     zip_safe=False,
 
     packages=find_packages(),
+    cffi_modules=['build_wide.py:ffibuilder'],
 
     classifiers=(
         'Development Status :: 3 - Alpha',
@@ -57,5 +58,9 @@ setup(
     install_requires=(
         'numpy',
         'scipy',
-    )
+    ),
+
+    setup_requires=(
+        'cffi >=1.10',
+    ),
 )

@@ -1,6 +1,7 @@
-import _wide
 import numpy
 import scipy.sparse
+
+from . import _wide
 
 
 def wide_product(a, b):
