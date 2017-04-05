@@ -47,18 +47,14 @@ wp_index wide_product(
     wp_index off = 0;
     for (wp_index x = 0; x < height; ++x) {
         *out_indptr++ = off;
-        a_data += a_indptr[x];
-        b_data += b_indptr[x];
-        a_indices += a_indptr[x];
-        b_indices += b_indptr[x];
 
         off += wide_product_row(
-            a_data,
-            a_indices,
+            a_data + a_indptr[x],
+            a_indices + a_indptr[x],
             a_width,
             a_indptr[x + 1] - a_indptr[x],
-            b_data,
-            b_indices,
+            b_data + b_indptr[x],
+            b_indices + b_indptr[x],
             b_width,
             b_indptr[x + 1] - b_indptr[x],
             out_data + off,
