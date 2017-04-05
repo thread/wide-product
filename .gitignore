@@ -4,3 +4,4 @@ _wide.o
 _wide.c
 _wide.*.so
 *.egg-info
+build
