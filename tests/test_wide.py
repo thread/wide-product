@@ -97,4 +97,6 @@ def test_horizontal_stacking(a_width, b_width, height_top, height_bottom, data):
 
     full_product = wide_product(a, b)
 
-    assert full_product == stacked_product
+    x = (full_product != stacked_product).todense().ravel()
+
+    assert not numpy.any(x)
