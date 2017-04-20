@@ -46,7 +46,7 @@ def get_sparse_matrix(shape, data):
     )), dtype='int32')
 
     return scipy.sparse.coo_matrix(
-        (element_data, locations[:, 0], locations[:, 1]),
+        (element_data, (locations[:, 0], locations[:, 1])),
         shape=shape,
     ).tocsr()
 
