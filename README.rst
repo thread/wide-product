@@ -34,3 +34,31 @@ all the products of the subcomponents up to permutation of columns:
                 wide_product(A, D),
                 wide_product(B, C),
                 wide_product(B, D)))
+
+Installation
+------------
+
+.. code:: bash
+
+  pip install wide-product
+
+Development
+-----------
+
+To build the module:
+
+.. code:: bash
+
+  python setup.py build
+
+To test:
+
+.. code:: bash
+
+  PYTHONPATH=$(echo build/lib*):. py.test
+
+To install:
+
+.. code:: bash
+
+  pip install .
