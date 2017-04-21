@@ -14,6 +14,7 @@ ffibuilder.set_source(
     #include "wide.c"
     """,
     extra_compile_args=[
+        '-std=c99',
         '-Werror',
         '-fno-unwind-tables',
         '-fomit-frame-pointer',
