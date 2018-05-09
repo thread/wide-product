@@ -17,7 +17,7 @@ setup(
     author="Thread Tech",
     author_email="tech@thread.com",
 
-    keywords = (
+    keywords=(
         'numpy',
         'scipy',
         'matrix',
