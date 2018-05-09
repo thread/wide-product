@@ -1,0 +1,2 @@
+include build_wide.py
+include wide_product/wide.c
