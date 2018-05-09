@@ -7,3 +7,4 @@ _wide.*.so
 build
 dist
 .cache
+.pytest_cache
