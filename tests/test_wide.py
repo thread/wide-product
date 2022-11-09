@@ -82,6 +82,7 @@ def test_shapes_of_empty_sparse_matrices_are_correct(a_width, b_width, height):
     height_bottom=SENSIBLE_DIMENSION,
     data=hypothesis.strategies.data(),
 )
+@hypothesis.settings(deadline=None)
 def test_horizontal_stacking(a_width, b_width, height_top, height_bottom, data):
     a_top = get_sparse_matrix((height_top, a_width), data)
     b_top = get_sparse_matrix((height_top, b_width), data)
