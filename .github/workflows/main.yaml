@@ -4,6 +4,8 @@ on:
   push:
     branches:
       - master
+  release:
+    types: [published]
   pull_request: {}
   workflow_dispatch: {}
 
@@ -63,3 +65,7 @@ jobs:
         run: |
           python setup.py sdist bdist_wheel
           twine check dist/*
+
+      - name: Upload package
+        if: github.event_name == 'release'
+        run: twine upload --repository-url dist/*
