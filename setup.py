@@ -17,7 +17,7 @@ setup(
     author="Thread Tech",
     author_email="tech@thread.com",
 
-    keywords=(
+    keywords=[
         'numpy',
         'scipy',
         'matrix',
@@ -27,7 +27,7 @@ setup(
         'science',
         'feature',
         'courgette',
-    ),
+    ],
     license='MIT',
 
     zip_safe=False,
@@ -35,7 +35,7 @@ setup(
     packages=find_packages(),
     cffi_modules=['build_wide.py:ffibuilder'],
 
-    classifiers=(
+    classifiers=[
         'Development Status :: 3 - Alpha',
         'Intended Audience :: Developers',
         'Intended Audience :: Science/Research',
@@ -43,19 +43,22 @@ setup(
         'Natural Language :: English',
         'Operating System :: POSIX',
         'Programming Language :: Python',
-        'Programming Language :: Python :: 2',
-        'Programming Language :: Python :: 2.7',
-        'Programming Language :: Python :: 3',
-        'Programming Language :: Python :: 3.4',
-        'Programming Language :: Python :: 3.5',
         'Programming Language :: Python :: 3.6',
+        'Programming Language :: Python :: 3.7',
+        'Programming Language :: Python :: 3.8',
+        'Programming Language :: Python :: 3.9',
+        'Programming Language :: Python :: 3.10',
+        'Programming Language :: Python :: 3.11',
         'Topic :: Scientific/Engineering',
         'Topic :: Scientific/Engineering :: Information Analysis',
         'Topic :: Scientific/Engineering :: Mathematics',
         'Topic :: Software Development :: Libraries',
-    ),
+    ],
+
+    python_requires='>=3.7',
 
     install_requires=(
+        'cffi',
         'numpy',
         'scipy',
     ),
