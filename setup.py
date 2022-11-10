@@ -9,7 +9,7 @@ with io.open('README.rst', 'r', encoding='utf-8') as f:
 
 setup(
     name='wide-product',
-    version='0.0.2',
+    version='0.1.0',
     url='https://github.com/thread/wide-product',
     description="Wide (partial Khatri-Rao) sparse matrix product",
     long_description=long_description,
