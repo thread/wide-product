@@ -64,7 +64,7 @@ jobs:
       - name: Build manylinux
         uses: RalfG/python-wheels-manylinux-build@v0.5.0
         with:
-          python-versions: 'cp37-cp37m, cp38-cp38m, cp39-cp39m, cp10-cp310m, cp311-cp311m'
+          python-versions: 'cp37-cp37m cp38-cp38m cp39-cp39m cp10-cp310m cp311-cp311m'
           build-requirements: 'cffi'
 
       - name: Check wheels
