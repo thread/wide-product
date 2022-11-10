@@ -81,7 +81,7 @@ jobs:
           TWINE_PASSWORD: ${{ secrets.PYPI_TOKEN }}
         if: github.event_name == 'release'
         run: |
-          twine upload dist/*-manylinux-* dist/*.tar.gz
+          twine upload dist/*-manylinux*.whl dist/*.tar.gz
 
   release-macos:
     name: Release MacOS
