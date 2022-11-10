@@ -35,13 +35,55 @@ jobs:
       - name: Test
         run: pytest
 
-  release:
-    name: Release
+  release-linux:
+    name: Release Linux
+    runs-on: 'ubuntu-latest'
+
+    if: github.ref == 'refs/heads/master' || github.event_name == 'release'
+
+    needs:
+      - test
+
+    steps:
+
+      - uses: actions/checkout@v3
+
+      - uses: actions/setup-python@v4
+        with:
+          python-version: ${{ matrix.python-version }}
+          cache: 'pip'
+          cache-dependency-path: requirements-test.txt
+
+      - name: Install dependencies
+        run: pip install -r requirements-build.txt
+
+      - name: Build
+        run: |
+          python setup.py sdist
+
+      - name: Build manylinux
+        uses: RalfG/python-wheels-manylinux-build@v0.5.0
+        with:
+          python-versions: 'cp37-cp37m, cp38-cp38m, cp39-cp39m, cp10-cp310m, cp311-cp311m'
+          build-requirements: 'cffi'
+
+      - name: Check wheels
+        run: twine check dist/*
+
+      - name: Upload package
+        env:
+          TWINE_USERNAME: __token__
+          TWINE_PASSWORD: ${{ secrets.PYPI_TOKEN }}
+        if: github.event_name == 'release'
+        run: |
+          twine upload dist/*-manylinux-* dist/*.tar.gz
+
+  release-macos:
+    name: Release MacOS
     strategy:
       matrix:
         python-version: ['3.7', '3.8', '3.9', '3.10', '3.11']
-        os: ['ubuntu-latest', 'macos-latest']
-    runs-on: ${{ matrix.os }}
+    runs-on: 'macos-latest'
 
     if: github.ref == 'refs/heads/master' || github.event_name == 'release'
 
@@ -71,4 +113,4 @@ jobs:
           TWINE_USERNAME: __token__
           TWINE_PASSWORD: ${{ secrets.PYPI_TOKEN }}
         if: github.event_name == 'release'
-        run: twine upload dist/*
+        run: twine upload dist/*.whl
