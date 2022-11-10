@@ -67,5 +67,8 @@ jobs:
           twine check dist/*
 
       - name: Upload package
+        env:
+          TWINE_USERNAME: __token__
+          TWINE_PASSWORD: ${{ secrets.PYPI_TOKEN }}
         if: github.event_name == 'release'
         run: twine upload --repository-url dist/*
