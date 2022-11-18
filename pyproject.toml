@@ -11,6 +11,7 @@ test-requires = ["-r", "requirements-test.txt"]
 
 [tool.cibuildwheel.linux]
 archs = ["x86_64", "aarch64"]
+skip = ["*-musllinux_*"]
 
 [tool.cibuildwheel.macos]
 archs = ["x86_64", "universal2"]
